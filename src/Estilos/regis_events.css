@@ -1,0 +1,92 @@
+.formu {
+    width: 950px;
+    height: 550px;
+    background-color: #E3DAC9;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0% 20%, 10% 0%, 90% 0%, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0% 80%);
+    text-align: center;
+    margin-bottom: 300px;
+}
+
+.container{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.categoria{
+    font-size: 2em;
+    line-height: 30px;
+    color: #f2a700;
+    padding-bottom: 50px;
+    margin: 40px 60px 40px 60px;
+    border-bottom: solid 4px #f2a700;
+}
+
+.regis_events{
+    font-size: 1em;
+    line-height: 30px;
+    color: #f2a700;
+    padding-bottom: 25px;
+    margin: 20px 60px 20px 60px;
+    border-bottom: solid 4px #f2a700;
+}
+
+.info_form{
+    width: 100%;
+    line-height: 70px;
+    font-size: 17px;
+    padding-left: 25px;
+    display: inline-block;
+}
+
+.info_form div{
+    width: 40%;
+    float: left;
+    padding-right: 70px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.info_form div p,
+.mensajeblock{
+    margin: 0 50px 10px 25px;
+    text-align: justify;
+    font-size: 14px;
+    color: #fcb900;
+    height: 20px;
+}
+
+.info_form label{
+    padding-right: 30px;
+}
+
+.info_form input{
+    width: 100%;
+    padding: 2px 0 2px 20px;
+    border: none;
+    border-bottom: 3px solid #fcb900;
+    display: flex;
+    background-color: #E3DAC9;
+    outline: 0;
+}
+
+.btn{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.button_regis_e{
+    padding: 0 24px;
+    margin: 10px 0 10px 500px;
+    border-radius: 30px;
+    background-color: #f2a700;
+    color: #f2f2f2;
+    font-weight: 600;
+    cursor: pointer;
+}
+

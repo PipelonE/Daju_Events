@@ -1,0 +1,90 @@
+.cabecera {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 100px;
+    z-index: 1000;   
+}
+
+.logo{
+    height: 50px;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+}
+
+.item{
+    list-style: none;
+}
+
+.item a{
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #f2f2f2;
+}
+
+.item a:hover{
+    color: #f2a700;
+}
+
+#menu{
+    display: none;
+}
+
+.menu-icono{
+    width: 90px;
+    height: 90px;
+}
+
+.Barra-lateral_arrow{
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.arrow .Barra-lateral_arrow{
+    transform: rotate(280deg);
+}
+
+.btn_login{
+    list-style: none;
+}
+
+.btn_login i{
+    padding: 10px 24px;
+    border-radius: 30px;
+    background-color: #f2a700;
+    color: #f2f2f2;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn_login i:hover{
+    background-color: #f2a700;
+}
+
+.iden_per{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.foto_per{
+    width: 70px;
+    height: 70px;
+    margin-top: 20x;
+}
+
+.nombre_user{
+    font-size: 15px;
+    margin: 0;
+}
