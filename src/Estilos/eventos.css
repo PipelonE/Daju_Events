@@ -1,13 +1,13 @@
-.tittle{
-    font-size: 2em;
-    line-height: 30px;
+.tittle {
+    font-size: 2.5em; /* Aumentar el tamaño de la fuente */
+    line-height: 1.2;
     color: #f2a700;
     padding-bottom: 50px;
     margin: 40px 60px 40px 60px;
     border-bottom: solid 4px #f2a700;
 }
 
-.buscar{
+.buscar {
     padding: 5px;
     margin: 35px;
     display: flex;
@@ -15,22 +15,22 @@
     align-items: center;
 }
 
-.buscar input{
+.buscar input {
     width: 350px;
-    height: 30px;
+    height: 40px; /* Aumentar la altura del input */
     margin-left: 15px;
     padding: 0 0 0 20px;
-    font-size: 14px;
+    font-size: 16px; /* Aumentar el tamaño de la fuente */
     outline: none;
     border: 2px solid #f2a700;
     background-color: #E3DAC9;
     border-radius: 30px;
 }
 
-.buscar_icon{
+.buscar_icon {
     background: #f2a700;
-    width: 35px;
-    height: 35px;
+    width: 40px; /* Aumentar el tamaño del icono */
+    height: 40px;
     line-height: 40px;
     text-align: center;
     font-size: 25px;
@@ -38,73 +38,88 @@
     cursor: pointer;
 }
 
-.collag{
+.collag {
     margin-top: 40px;
     margin-bottom: 100px;
 }
 
-.evento_location{
+.evento_location {
     width: 960px;
-    height: 60px;
+    height: 70px; /* Aumentar la altura */
     margin: 0 auto;
     background: #323337;
-    color: #f2f2f2;
-    display: flex;
+    color: #ffffff; /* Cambiar el color del texto */
+    display: none;
     align-items: center;
     gap: 1em;
     cursor: pointer;
+    font-size: 1.2em; /* Aumentar el tamaño de la fuente */
+    font-weight: bold; /* Hacer el texto más grueso */
 }
 
-.Barra-lateral_link{
-    font-size: 25px;
-    color: #f2f2f2;
+.Barra-lateral_link {
+    color: #ffffff; /* Cambiar el color del texto */
     display: block;
-    margin:5px 0 5px 40px;
+    margin: 5px 0 5px 40px;
     text-decoration: none;
 }
 
-.Barra-lateral_arrow{
-    color: #f2f2f2;
+.Barra-lateral_arrow {
     margin-left: auto;
     margin-right: 10px;
     transition: transform .3s;
 }
 
-.info_area{
+.info_area {
     padding: 50px;
+    background: #2c2c2c; /* Añadir un fondo oscuro */
+    color: #f2f2f2; /* Cambiar el color del texto */
 }
 
-.funciones{
+.funciones {
     width: 960px;
-    height: auto;
     margin: 0 auto;
-    background:  #3f3f3f;
-    color: #f2f2f2;
+    background: #3f3f3f;
+    color: #ffffff; /* Cambiar el color del texto */
+    display: none;
 }
 
-.description{
+.description {
     text-align: center;
     font-size: 22px;
     margin: 0;
+    color: #ffffff; /* Cambiar el color del texto */
 }
 
-.info_event{
+.info_event {
     display: flex;
+    flex-wrap: wrap; /* Permitir el ajuste de las cajas */
     justify-content: space-between;
     align-items: center;
-    
+    gap: 20px; /* Añadir espacio entre las cajas */
 }
 
-.info{
+.info {
     padding: 5px;
-    margin: 30px;
+    margin: 20px; /* Reducir el margen para un ajuste más fácil */
+    flex: 1 1 200px; /* Ajustar flexbox para permitir el ajuste */
+    background: #444; /* Añadir un fondo oscuro a cada caja */
+    border-radius: 8px;
 }
 
-.info h6{
+.info h6 {
     font-size: 20px;
+    margin-bottom: 10px;
+    color: #f2a700; /* Cambiar el color del título */
 }
 
-.generar_buttons{
+.info p {
+    font-size: 16px;
+    margin: 0;
+    color: #f2f2f2; /* Cambiar el color del texto */
+}
+
+.generar_buttons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,32 +132,33 @@
     justify-content: center;
     width: 150px;
     height: 60px;
-    font-size: 13px;
-    color: rgb(241, 236, 236);
+    font-size: 16px; /* Aumentar el tamaño de la fuente */
+    font-weight: bold; /* Hacer el texto más grueso */
+    color: #f1ecec;
     border: 0;
     border-radius: 25px;
     box-shadow: 0 0 20px rgba(254, 1, 136, 0.132);
-    margin: 30px 0 20px 20px;
+    margin: 30px 20px;
     cursor: pointer;
-    padding: 0; /* Elimina el padding para evitar desplazamientos */
+    padding: 0;
 }
 
 .button_word img,
 .button_pdf img {
     width: 30px;
     height: 30px;
-    margin-left: 10px; /* Espacio entre el texto y la imagen */
+    margin-left: 10px;
 }
 
-.button_word{
+.button_word {
     background-color: #2B579A;
 }
 
-.button_pdf{
+.button_pdf {
     background-color: #e51919;
 }
 
-.btn{
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
