@@ -9,7 +9,7 @@ const {swaggerJSDOCs} = require('./swagger')
 
 const app = express();
 app.use(session({
-    secret: 'nv_cordination',
+    secret: 'Daju_events',
     resave: false,
     saveUninitialized: false
 }));
@@ -17,7 +17,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:4000',
     methods: ['GET', 'POST','PUT','DELETE'],
 };
 app.use(cors());
