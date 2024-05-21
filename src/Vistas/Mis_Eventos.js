@@ -8,6 +8,8 @@ import word from '../Imagenes/doc.png';
 import pdf from '../Imagenes/pdf.png';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Document, Packer, Paragraph, TextRun } from 'docx';
+import { saveAs } from 'file-saver';
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -85,6 +87,56 @@ function Mis_eventos() {
         }
     };
 
+    const generarWord = () => {
+        if (busquedaevent) {
+            const doc = new Document({
+                sections: [
+                    {
+                        properties: {},
+                        children: [
+                            new Paragraph({
+                                text: busquedaevent.nombre_evento,
+                                heading: "Title",
+                            }),
+                            new Paragraph({
+                                text: `Fecha: ${busquedaevent.fecha_e}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Lugar: ${busquedaevent.lugar_id}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Hora Inicio: ${busquedaevent.hora_inicio}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Hora Final: ${busquedaevent.hora_Fin}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Persona de Registro: Patricia Turbai`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Participantes: ${busquedaevent.participantes_e}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Descripción: ${busquedaevent.descripcion_e}`,
+                                spacing: { after: 200 },
+                            }),
+                        ],
+                    },
+                ],
+            });
+
+            Packer.toBlob(doc).then((blob) => {
+                saveAs(blob, `${busquedaevent.nombre_evento}.docx`);
+            });
+        }
+    };
+
     return (
         <div>
             <Navbar/>
@@ -142,7 +194,7 @@ function Mis_eventos() {
                             </div>
                             <div className='generar_buttons'>
                                 <div className="btn">
-                                    <button className="button_word" type="submit" id="btn_crono">
+                                    <button className="button_word" type="submit" id="btn_crono" onClick={generarWord}>
                                         Generar Word
                                         <img className='icon_gen' src={word}  alt="Word"/>
                                     </button>
