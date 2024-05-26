@@ -39,7 +39,21 @@ const RegistrarEvento = async (req, res) => {
     }
 };
 
+const RegistrarUsuario = async (req, res) => {
+    try {
+        const { pkfk_tdoc, numero_id, Nombres, Apellidos, correo, celular } = req.body;
+        
+        const resultado = await conn.query("INSERT INTO usuario (pkfk_tdoc, numero_id, Nombres, Apellidos, correo, celular) VALUES (?, ?, ?, ?, ?, ?)", [pkfk_tdoc, numero_id, Nombres, Apellidos, correo, celular]);
+        console.log('Usuario registrado con éxito');
+        res.status(200).json({ message: 'Usuario registrado con éxito' });
+    } catch (error) {
+        console.error('Error al registrar usuario:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
 module.exports={
     Buscar_Evento,
-    RegistrarEvento
+    RegistrarEvento,
+    RegistrarUsuario
 }
