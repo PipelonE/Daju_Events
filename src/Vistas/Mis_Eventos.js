@@ -2,7 +2,7 @@ import React, { useState, useRef} from 'react';
 import '../Estilos/eventos.css';
 import Arrow from "../Imagenes/arrow.svg";
 import Buscar from "../Imagenes/bx-search.svg";
-import Navbar from "../Componentes/Navbar";
+import Navbar4 from '../Componentes/Navbar4';
 import Slider from '../Componentes/Slider';
 import word from '../Imagenes/doc.png';
 import pdf from '../Imagenes/pdf.png';
@@ -139,7 +139,7 @@ function Mis_eventos() {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar4/>
             <Slider/>
             <h1 className="tittle">Eventos</h1><br/>
             <div className="buscar">
@@ -209,7 +209,9 @@ function Mis_eventos() {
                         </div>
                     </section>
                 ) : (
-                    <p>No se encontró ningún evento</p>
+                    <div className='area_mensaje'>
+                        <p className='mensaje_no_encontrado'>No se encontró ningún evento</p>
+                    </div>
                 )}
             </div>
         </div>

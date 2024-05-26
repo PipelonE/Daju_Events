@@ -6,7 +6,7 @@ import {useRef, useState, useEffect} from "react";
 import foto_perfil from '../Imagenes/usuario-de-perfil.png';
 
 
-export const Navbar = () => {
+export const Navbar4 = () => {
     const [background, setbackground] = useState("transparent")
     const refheader = useRef();
 
@@ -43,10 +43,9 @@ export const Navbar = () => {
             </div>
             <ul className="menu">
                 <li className="item"><i href="/quienes_somos"><Link to="/regis_usuario">Registro</Link></i></li>
-                <li className="item"><i href="/productos"><Link to="/generar_reportes">Mis Eventos</Link></i></li>
                 <li className="btn_login"><i href="."><Link to="/">Conocenos</Link></i></li>
             </ul>
         </header>
     )
 }
-export default Navbar
+export default Navbar4
