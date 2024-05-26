@@ -163,3 +163,15 @@
     justify-content: center;
     align-items: center;
 }
+
+.area_mensaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 150px;
+}
+
+.mensaje_no_encontrado{
+    font-size: 50px;
+    color: #afafaf;
+}
