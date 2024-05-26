@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import '../Estilos/regis_events.css';
 import Navbar from "../Componentes/Navbar";
 import Slider from '../Componentes/Slider';
@@ -17,7 +18,36 @@ function Registrar_usuario() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    //  número de celular
+    if (name === "celular") {
+      if (!/^\d{10}$/.test(value)) {
+        return;
+      }
+    }
+
+    // correo electrónico
+    if (name === "correo") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        return;
+      }
+    }
+
+   //cedula
+    if (name === "numero_id") {
+      if (!/^\d{8,15}$/.test(value)) {
+        return;
+      }
+    }
+
+    //mayuscula Nombres o Apellidos
+    if (name === "Nombres" || name === "Apellidos") {
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setFormData({ ...formData, [name]: capitalizedValue });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -32,15 +62,36 @@ function Registrar_usuario() {
       });
 
       if (response.ok) {
-        console.log('Usuario registrado con éxito');
-        alert('Usuario registrado con éxito');
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Usuario registrado con éxito'
+        });
+
+        // Limpiar el formulario
+        setFormData({
+          Nombres: '',
+          Apellidos: '',
+          pkfk_tdoc: '',
+          numero_id: '',
+          celular: '',
+          correo: '',
+          direccion: '',
+          participantes: ''
+        });
       } else {
-        console.error('Error al registrar usuario');
-        alert('Error al registrar usuario');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error al registrar usuario'
+        });
       }
     } catch (error) {
-      console.error('Error al registrar usuario:', error);
-      alert('Error interno del servidor');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Error interno del servidor'
+      });
     }
   };
 
