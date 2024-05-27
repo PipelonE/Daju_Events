@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../Estilos/regis_events.css';
 import Navbar from "../Componentes/Navbar";
 import Slider from '../Componentes/Slider';
 
 function Registrar_eventos() {
+
+  const location = useLocation();
+  const numEventos = location.state?.numEventos || 1;  // Por defecto 1 si no se especifica
   const initialFormData = {
     usuario_id: 14,
     nombre_evento: '',
@@ -15,7 +19,7 @@ function Registrar_eventos() {
     descripcion_e: ''
   };
 
-  const [formsData, setFormsData] = useState([initialFormData, initialFormData]);
+  const [formsData, setFormsData] = useState(Array.from({ length: numEventos }, () => initialFormData));
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;

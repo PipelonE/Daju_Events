@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import '../Estilos/regis_events.css';
+import '../Estilos/regis_usuario.css';
 import Navbar from "../Componentes/Navbar";
 import Slider from '../Componentes/Slider';
+import { useNavigate } from "react-router-dom";
 
 function Registrar_usuario() {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     Nombres: '',
     Apellidos: '',
@@ -13,7 +17,7 @@ function Registrar_usuario() {
     celular: '',
     correo: '',
     direccion: '',
-    participantes: ''
+    eventos: ''
   });
 
   const handleChange = (e) => {
@@ -68,17 +72,7 @@ function Registrar_usuario() {
           text: 'Usuario registrado con éxito'
         });
 
-        // Limpiar el formulario
-        setFormData({
-          Nombres: '',
-          Apellidos: '',
-          pkfk_tdoc: '',
-          numero_id: '',
-          celular: '',
-          correo: '',
-          direccion: '',
-          participantes: ''
-        });
+        navigate("/regis_event", { state: { numEventos: formData.eventos } });
       } else {
         Swal.fire({
           icon: 'error',
@@ -99,12 +93,12 @@ function Registrar_usuario() {
     <div>
       <Navbar />
       <Slider />
-      <h1 className="categoria">Eventos</h1><br />
-      <div className='container'>
-        <div className='formu'>
-          <h6 className="regis_events">Registre el usuario</h6><br />
-          <form className="cont_info" onSubmit={handleSubmit}>
-            <div className="info_form">
+      <h1 className="categoria_u">Eventos</h1><br />
+      <div className='container_u'>
+        <div className='formu_u'>
+          <h6 className="regis_events_u">Registre el usuario</h6><br />
+          <form className="cont_info_u" onSubmit={handleSubmit}>
+            <div className="info_form_u">
               <div>
                 <label htmlFor="pname">Nombres</label>
                 <input id="pname" type="text" name="Nombres" value={formData.Nombres} onChange={handleChange} />
@@ -140,11 +134,11 @@ function Registrar_usuario() {
                 <input id="dirección" type="text" name="direccion" value={formData.direccion} onChange={handleChange} />
               </div>
               <div>
-                <label htmlFor="participantes">Numero de eventos</label>
-                <input id="participantes" type="text" name="participantes" value={formData.participantes} onChange={handleChange} />
+                <label htmlFor="eventos">Numero de eventos</label>
+                <input id="eventos" type="text" name="eventos" value={formData.eventos} onChange={handleChange} />
               </div>
-              <div className="btn">
-                <button className="button_regis_e" type="submit" id="btn_regis">Registrar</button>
+              <div className="btn_u">
+                <button className="button_regis_u" type="submit" id="btn_regis">Registrar</button>
               </div>
             </div>
           </form>
