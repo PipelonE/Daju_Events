@@ -66,9 +66,6 @@ const RegistrarEvento = async (req, res) => {
     }
 };
 
-
-
-
 const RegistrarUsuario = async (req, res) => {
     try {
         const { pkfk_tdoc, numero_id, Nombres, Apellidos, correo, celular } = req.body;
@@ -82,8 +79,22 @@ const RegistrarUsuario = async (req, res) => {
     }
 };
 
+const buscarUsuario = async (req, res)=>{
+    try{
+        const {numero_id} = req.params;
+        const connection = await conn;
+        const [result] = await connection.query("SELECT id_usuario FROM usuario WHERE numero_id = ?", [numero_id])
+        res.json(result)
+    }
+    catch(error){
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 module.exports={
     Buscar_Evento,
     RegistrarEvento,
-    RegistrarUsuario
+    RegistrarUsuario,
+    buscarUsuario
 }

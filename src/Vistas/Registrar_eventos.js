@@ -7,9 +7,9 @@ import Slider from '../Componentes/Slider';
 function Registrar_eventos() {
 
   const location = useLocation();
-  const numEventos = location.state?.numEventos || 1;  // Por defecto 1 si no se especifica
+  const {numEventos, usuarioiden} = location.state || {};  
   const initialFormData = {
-    usuario_id: 14,
+    usuario_id: usuarioiden,
     nombre_evento: '',
     fecha_e: '',
     hora_inicio: '',
