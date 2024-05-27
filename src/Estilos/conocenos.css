@@ -1,0 +1,55 @@
+
+.conocenos-container {
+    padding: 20px;
+    background-color: #333; 
+  }
+  
+ 
+  .conocenos-container h2,
+  .conocenos-container h3 {
+    color: white;      
+    font-size: 3em;   
+    margin-bottom: 20px;
+   
+  }
+  
+
+  .conocenos-container p,
+  .conocenos-container ul {
+    color: white;      
+    font-size: 1.5em;    
+    line-height: 1.6;  
+  }
+  
+ 
+  .conocenos-container ul {
+    padding-left: 20px; 
+  }
+  
+  .conocenos-container li {
+    margin-bottom: 10px; 
+    display: flex;
+    align-items: center;
+  }
+  
+  .conocenos-container .social-icon {
+    margin-right: 10px; 
+    width: 24px;        
+    height: 24px;       
+  }
+  
+
+  .conocenos-container em {
+    font-style: italic;
+    color: white;
+  }
+  
+  .conocenos-container strong {
+    color: white;
+  }
+  
+
+  .conocenos-container section {
+    margin-bottom: 30px; 
+  }
+  

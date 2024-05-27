@@ -1,7 +1,11 @@
 import React from 'react';
-import '../Estilos/regis_events.css';
+import '../Estilos/conocenos.css';
 import Navbar3 from '../Componentes/Navbar3';
 import Slider from '../Componentes/Slider';
+import facebookIcon from '../Imagenes/facebook.png';
+import instagramIcon from '../Imagenes/instagram.png';
+import twitterIcon from '../Imagenes/gorjeo.png';
+
 
 function Conocenos() {
   return (
@@ -24,7 +28,6 @@ function Conocenos() {
           <h3>Nuestra Misión</h3>
           <p>Nuestra misión es transformar ideas en experiencias memorables.
              Trabajamos de la mano con nuestros clientes para entender sus necesidades y deseos, asegurándonos de
-             
               que cada detalle esté cuidado a la perfección. Nuestro objetivo es no solo cumplir, sino exceder las expectativas,
                brindando eventos que dejen una huella duradera.</p>
         </section>
@@ -36,8 +39,6 @@ function Conocenos() {
              cada miembro de nuestro equipo aporta su expertise y creatividad para garantizar el éxito de cada evento. 
              Nuestra dedicación y compromiso se reflejan en cada proyecto que realizamos.</p>
         </section>
-
-        
 
         <section>
           <h3>Por Qué Elegirnos</h3>
@@ -52,20 +53,28 @@ function Conocenos() {
 
         <section>
           <h3>Testimonios</h3>
-          <p><em>"Daju Events hizo de nuestra boda un día verdaderamente mágico. Su atención al detalle y profesionalismo fueron excepcionales.
-            "</em> - <strong>María y José</strong></p>
-          <p><em>"Contratar a Daju Events para nuestra conferencia anual fue la mejor decisión. Todo salió perfecto y nuestros asistentes quedaron encantados.
-            "</em> - <strong>Laura, Empresa XYZ</strong></p>
+          <p><em>"Daju Events hizo de nuestra boda un día verdaderamente mágico. Su atención al detalle y profesionalismo fueron excepcionales."
+            </em> - <strong>María y José</strong></p>
+          <p><em>"Contratar a Daju Events para nuestra conferencia anual fue la mejor decisión. Todo salió perfecto y nuestros asistentes quedaron encantados."
+            </em> - <strong>Laura, Empresa XYZ</strong></p>
         </section>
 
         <section>
           <h3>Contacto</h3>
-
           <p>Síguenos en nuestras redes sociales para inspirarte y conocer más sobre nuestros proyectos recientes:</p>
-          <ul>
-            <li><strong>Facebook:</strong> @DajuEvents</li>
-            <li><strong>Instagram:</strong> @DajuEvents</li>
-            <li><strong>Twitter:</strong> @DajuEvents</li>
+          <ul className="social-media-list">
+            <li>
+              <img src={facebookIcon} alt="Facebook" className="social-icon"/>
+              <strong>Facebook:</strong> @DajuEvents
+            </li>
+            <li>
+              <img src={instagramIcon} alt="Instagram" className="social-icon"/>
+              <strong>Instagram:</strong> @DajuEvents
+            </li>
+            <li>
+              <img src={twitterIcon} alt="Twitter" className="social-icon"/>
+              <strong>Twitter:</strong> @DajuEvents
+            </li>
           </ul>
         </section>
       </div>
