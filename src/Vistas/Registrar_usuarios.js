@@ -6,7 +6,6 @@ import Slider from '../Componentes/Slider';
 import { useNavigate } from "react-router-dom";
 
 function Registrar_usuario() {
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -22,47 +21,63 @@ function Registrar_usuario() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    //  número de celular
-    if (name === "celular") {
-      if (!/^\d{10}$/.test(value)) {
-        return;
-      }
-    }
-
-    // correo electrónico
-    if (name === "correo") {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        return;
-      }
-    }
-
-   //cedula
-    if (name === "numero_id") {
-      if (!/^\d{8,15}$/.test(value)) {
-        return;
-      }
-    }
-
-    //mayuscula Nombres o Apellidos
-    if (name === "Nombres" || name === "Apellidos") {
-      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setFormData({ ...formData, [name]: capitalizedValue });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.Nombres || !formData.Apellidos || !formData.pkfk_tdoc || !formData.numero_id || !formData.celular || !formData.correo || !formData.direccion || !formData.eventos){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos son requeridos'
+      });
+      return;
+    }
+
+    if (!/^\d{10}$/.test(formData.celular)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'El número de celular debe tener 10 dígitos'
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.correo)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'El correo electrónico no es válido'
+      });
+      return;
+    }
+
+    if (!/^\d{8,15}$/.test(formData.numero_id)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'El número de documento debe tener entre 8 y 15 dígitos'
+      });
+      return;
+    }
+
+    // Convertir nombres y apellidos a mayúscula en la primera letra
+    const formattedFormData = {
+      ...formData,
+      Nombres: formData.Nombres.charAt(0).toUpperCase() + formData.Nombres.slice(1),
+      Apellidos: formData.Apellidos.charAt(0).toUpperCase() + formData.Apellidos.slice(1)
+    };
+
     try {
       const response = await fetch('http://localhost:4000/RegistrarUsuario', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formattedFormData)
       });
 
       if (response.ok) {
@@ -72,7 +87,7 @@ function Registrar_usuario() {
           text: 'Usuario registrado con éxito'
         });
 
-        navigate("/regis_event", { state: { numEventos: formData.eventos } });
+        navigate("/regis_event", { state: { numEventos: formData.eventos , usuarioiden: 20} });
       } else {
         Swal.fire({
           icon: 'error',
@@ -118,23 +133,23 @@ function Registrar_usuario() {
                 </datalist>
               </div>
               <div>
-                <label htmlFor="ndocument">Numero de documento</label>
+                <label htmlFor="ndocument">Número de documento</label>
                 <input id="ndocument" type="text" name="numero_id" value={formData.numero_id} onChange={handleChange} />
               </div>
               <div>
-                <label htmlFor="ncelular">Numero de celular</label>
+                <label htmlFor="ncelular">Número de celular</label>
                 <input id="ncelular" type="text" name="celular" value={formData.celular} onChange={handleChange} />
               </div>
               <div>
-                <label htmlFor="email">Correo Electronico</label>
+                <label htmlFor="email">Correo Electrónico</label>
                 <input id="email" type="email" name="correo" value={formData.correo} onChange={handleChange} />
               </div>
               <div>
-                <label htmlFor="dirección">Dirección</label>
-                <input id="dirección" type="text" name="direccion" value={formData.direccion} onChange={handleChange} />
+                <label htmlFor="direccion">Dirección</label>
+                <input id="direccion" type="text" name="direccion" value={formData.direccion} onChange={handleChange} />
               </div>
               <div>
-                <label htmlFor="eventos">Numero de eventos</label>
+                <label htmlFor="eventos">Número de eventos</label>
                 <input id="eventos" type="text" name="eventos" value={formData.eventos} onChange={handleChange} />
               </div>
               <div className="btn_u">

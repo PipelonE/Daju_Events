@@ -193,13 +193,13 @@ function Mis_eventos() {
                                 </div> 
                             </div>
                             <div className='generar_buttons'>
-                                <div className="btn">
+                                <div className="btn_e">
                                     <button className="button_word" type="submit" id="btn_crono" onClick={generarWord}>
                                         Generar Word
                                         <img className='icon_gen' src={word}  alt="Word"/>
                                     </button>
                                 </div>
-                                <div className="btn">
+                                <div className="btn_e">
                                     <button className="button_pdf" type="button" id="btn_crono" onClick={generarPDF}>
                                         Generar PDF
                                         <img className='icon_gen' src={pdf} alt="PDF"/>
