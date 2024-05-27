@@ -9,7 +9,7 @@ const Buscar_Evento = async (req, res) => {
         
         const connection = await conn;
         const query = `
-            SELECT e.*, u.Nombres, u.Apellidos, l.nombre_lugar
+            SELECT e.*, e.usuario_id, u.Nombres, u.Apellidos, u.pkfk_tdoc, u.numero_id, u.correo, u.celular, l.nombre_lugar, l.nombre_lugar
             FROM eventos e
             JOIN usuario u ON e.usuario_id = u.id_usuario
             JOIN lugar l ON e.lugar_id = l.id_lugar

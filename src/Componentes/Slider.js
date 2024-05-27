@@ -1,10 +1,10 @@
 import React from 'react'
 import '../Estilos/slider.css';
-import Slider_1 from '../Imagenes/imagen 1.jpeg'
-import Slider_2 from '../Imagenes/imagen 2.jpeg'
+import Slider_1 from '../Imagenes/Imagen 1.jpeg'
+import Slider_2 from '../Imagenes/Imagen 2.jpeg'
 import Slider_3 from '../Imagenes/Imagen 3.jpeg'
 import Slider_4 from '../Imagenes/imagen 4.jpg'
-import Slider_5 from '../Imagenes/imagen 5.jpeg'
+import Slider_5 from '../Imagenes/Imagen 5.jpeg'
 import Slider_6 from '../Imagenes/imagen 6.jpg'
 import Slider_7 from '../Imagenes/Imagen 7.jpeg'
 

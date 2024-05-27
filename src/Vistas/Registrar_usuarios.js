@@ -87,7 +87,7 @@ function Registrar_usuario() {
           text: 'Usuario registrado con éxito'
         });
 
-        navigate("/regis_event", { state: { numEventos: formData.eventos , usuarioiden: 20} });
+        navigate("/regis_event", { state: { numEventos: formData.eventos , usuarioiden: 8} });
       } else {
         Swal.fire({
           icon: 'error',

@@ -103,7 +103,7 @@ function Mis_eventos() {
                                 spacing: { after: 200 },
                             }),
                             new Paragraph({
-                                text: `Lugar: ${busquedaevent.lugar_id}`,
+                                text: `Lugar: ${busquedaevent.nombre_lugar}`,
                                 spacing: { after: 200 },
                             }),
                             new Paragraph({
@@ -115,15 +115,31 @@ function Mis_eventos() {
                                 spacing: { after: 200 },
                             }),
                             new Paragraph({
-                                text: `Persona de Registro: Patricia Turbai`,
-                                spacing: { after: 200 },
-                            }),
-                            new Paragraph({
                                 text: `Participantes: ${busquedaevent.participantes_e}`,
                                 spacing: { after: 200 },
                             }),
                             new Paragraph({
                                 text: `Descripción: ${busquedaevent.descripcion_e}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Persona de Registro: ${busquedaevent.Nombres} ${busquedaevent.Apellidos}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Tipo Documento: ${busquedaevent.pkfk_tdoc}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Numero de Documento: ${busquedaevent.numero_id}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Celular: ${busquedaevent.celular}`,
+                                spacing: { after: 200 },
+                            }),
+                            new Paragraph({
+                                text: `Correo: ${busquedaevent.correo}`,
                                 spacing: { after: 200 },
                             }),
                         ],
@@ -172,7 +188,7 @@ function Mis_eventos() {
                                     </div>
                                     <div className='info'>
                                         <h6>Lugar</h6>
-                                        <p>{busquedaevent.lugar_id}</p>
+                                        <p>{busquedaevent.nombre_lugar}</p>
                                     </div>
                                     <div className='info'>
                                         <h6>Hora Inicio</h6>
@@ -183,12 +199,24 @@ function Mis_eventos() {
                                         <p>{busquedaevent.hora_Fin}</p>
                                     </div>
                                     <div className='info'>
-                                        <h6>Persona de Registro</h6>
-                                        <p>Patricia turbai</p>
-                                    </div>
-                                    <div className='info'>
                                         <h6>participantes</h6>
                                         <p>{busquedaevent.participantes_e}</p>
+                                    </div>
+                                    <div className='info'>
+                                        <h6>Nombre</h6>
+                                        <p>{busquedaevent.Nombres}{busquedaevent.Apellidos}</p>
+                                    </div>
+                                    <div className='info'>
+                                        <h6>Tipo y Numero de Documento</h6>
+                                        <p>{busquedaevent.pkfk_tdoc} - {busquedaevent.numero_id}</p>
+                                    </div>
+                                    <div className='info'>
+                                        <h6>Numero de Contacto</h6>
+                                        <p>{busquedaevent.celular}</p>
+                                    </div>
+                                    <div className='info'>
+                                        <h6>Correo</h6>
+                                        <p>{busquedaevent.correo}</p>
                                     </div>
                                 </div> 
                             </div>

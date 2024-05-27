@@ -5,9 +5,8 @@ import Navbar from "../Componentes/Navbar";
 import Slider from '../Componentes/Slider';
 
 function Registrar_eventos() {
-
   const location = useLocation();
-  const {numEventos, usuarioiden} = location.state || {};  
+  const { numEventos, usuarioiden } = location.state || {};
   const initialFormData = {
     usuario_id: usuarioiden,
     nombre_evento: '',
@@ -34,18 +33,15 @@ function Registrar_eventos() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const responses = await fetch('http://localhost:4000/RegistrarEvento', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formsData)
+      const response = await fetch('http://localhost:4000/RegistrarEvento', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formsData)
       });
 
-      console.log(formsData)
-
-      const allSuccessful = responses.every(response => response.ok);
-      if (allSuccessful) {
+      if (response.ok) {
         alert('Todos los eventos fueron registrados con éxito');
       } else {
         alert('Error al registrar uno o más eventos');
