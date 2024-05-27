@@ -1,92 +1,82 @@
 .formu {
-    width: 950px;
-    height: 670px;
+    width: 400px;
+    height: auto;
     background-color: #E3DAC9;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    clip-path: polygon(0% 20%, 10% 0%, 90% 0%, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0% 80%);
+    clip-path: none;
     text-align: center;
-    margin-bottom: 300px;
+    margin: 20px;
 }
 
-.container{
-    display: flex;
+.container {
+    margin: 50px 250px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 20px;
     justify-content: center; 
     align-items: center;
 }
 
-.categoria{
+.categoria {
     font-size: 2em;
     line-height: 30px;
     color: #f2a700;
-    padding-bottom: 50px;
-    margin: 40px 60px 40px 60px;
+    padding-bottom: 20px;
+    margin: 20px;
     border-bottom: solid 4px #f2a700;
+    text-align: center;
 }
 
-.regis_events{
+.regis_events {
     font-size: 1em;
     line-height: 30px;
     color: #f2a700;
-    padding-bottom: 25px;
-    margin: 20px 60px 20px 60px;
+    padding-bottom: 15px;
+    margin: 10px;
     border-bottom: solid 4px #f2a700;
 }
 
-.info_form{
+.info_form {
     width: 100%;
-    line-height: 70px;
-    font-size: 17px;
-    padding-left: 25px;
-    display: inline-block;
+    line-height: 40px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.info_form div{
-    width: 40%;
-    float: left;
-    padding-right: 70px;
-    padding-left: 10px;
-    margin-bottom: 20px;
-    position: relative;
+.info_form div {
+    display: flex;
+    flex-direction: column;
 }
 
-.info_form div p,
-.mensajeblock{
-    margin: 0 50px 10px 25px;
-    text-align: justify;
-    font-size: 14px;
-    color: #fcb900;
-    height: 20px;
+.info_form label {
+    margin-bottom: 5px;
 }
 
-.info_form label{
-    padding-right: 30px;
-}
-
-.info_form input{
-    width: 100%;
-    padding: 2px 0 2px 20px;
+.info_form input {
+    padding: 5px 10px;
     border: none;
     border-bottom: 3px solid #fcb900;
-    display: flex;
     background-color: #E3DAC9;
     outline: 0;
 }
 
-.btn{
+.btn {
     display: flex;
     justify-content: center; 
     align-items: center;
+    margin-top: 10px;
+    margin-left: 500px;
 }
 
-.button_regis_e{
-    padding: 0 24px;
-    margin: 10px 0 10px 500px;
-    border-radius: 30px;
+.button_regis_e {
+    padding: 10px 20px;
+    border-radius: 15px;
     background-color: #f2a700;
     color: #f2f2f2;
     font-weight: 600;
     cursor: pointer;
 }
-

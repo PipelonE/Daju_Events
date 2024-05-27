@@ -29,15 +29,45 @@ const Buscar_Evento = async (req, res) => {
 
 const RegistrarEvento = async (req, res) => {
     try {
-        const { usuario_id, nombre_evento, fecha_e, hora_inicio, hora_fin, lugar_id, participantes_e, descripcion_e } = req.body;   
-        const resultado = await conn.query("INSERT INTO eventos (usuario_id, nombre_evento, fecha_e, hora_inicio, hora_Fin, lugar_id, participantes_e, descripcion_e) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [usuario_id, nombre_evento, fecha_e, hora_inicio, hora_fin, lugar_id, participantes_e, descripcion_e]);
-        console.log('Evento registrado con éxito');
-        res.status(200).json({ message: 'Evento registrado con éxito' });
+        const eventos = req.body; // Obtiene los datos de los formularios
+        const resultados = []; // Almacena los resultados de cada inserción
+
+        // Itera sobre los datos de los formularios y ejecuta una inserción para cada uno
+        for (const evento of eventos) {
+            try {
+                const { usuario_id, nombre_evento, fecha_e, hora_inicio, hora_fin, lugar_id, participantes_e, descripcion_e } = evento;
+                console.log(`Registrando evento: ${JSON.stringify(evento)}`); // Log de cada evento
+
+                // Verificar si usuario_id existe
+                const usuarioExiste = await conn.query("SELECT 1 FROM usuario WHERE id_usuario = ?", [usuario_id]);
+                if (usuarioExiste.length === 0) {
+                    throw new Error(`Usuario con id ${usuario_id} no existe`);
+                }
+
+                // Verificar si lugar_id existe
+                const lugarExiste = await conn.query("SELECT 1 FROM lugar WHERE id_lugar = ?", [lugar_id]);
+                if (lugarExiste.length === 0) {
+                    throw new Error(`Lugar con id ${lugar_id} no existe`);
+                }
+
+                const resultado = await conn.query("INSERT INTO eventos (usuario_id, nombre_evento, fecha_e, hora_inicio, hora_Fin, lugar_id, participantes_e, descripcion_e) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [usuario_id, nombre_evento, fecha_e, hora_inicio, hora_fin, lugar_id, participantes_e, descripcion_e]);
+                resultados.push(resultado);
+            } catch (error) {
+                console.error(`Error al registrar el evento: ${JSON.stringify(evento)} - Error:`, error);
+                return res.status(500).json({ error: `Error al registrar el evento: ${JSON.stringify(evento)} - Error: ${error.message}` });
+            }
+        }
+
+        console.log('Todos los eventos registrados con éxito');
+        res.status(200).json({ message: 'Todos los eventos registrados con éxito' });
     } catch (error) {
-        console.error('Error al registrar evento:', error);
+        console.error('Error interno del servidor:', error);
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
+
+
+
 
 const RegistrarUsuario = async (req, res) => {
     try {
